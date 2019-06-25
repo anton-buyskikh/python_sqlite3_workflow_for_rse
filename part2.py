@@ -12,7 +12,7 @@ import aux
 
 db_filename = 'tutorial.db'
 
-conditions = dict(shape='rectangle')
+conditions = dict(shape = 'rectangle')
 column_list = ['colour', 'height', 'width', 'area']
 
 output = aux.select_from_table_where(db_filename,
@@ -27,7 +27,7 @@ print(*output, sep='\n')
 
 # %% update the table with data for area
 
-aux.update_rectangle_area_where(db_filename, dict(colour='green'))
+aux.update_rectangle_area_where(db_filename, dict(colour = 'green'))
 
 output = aux.select_from_table_where(db_filename,
                                      conditions,
