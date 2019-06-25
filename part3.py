@@ -59,3 +59,5 @@ for radius in [1.0, 1.5]:
                 datetime = datetime.datetime.now().__str__())
   
     aux.insert_into_geometric_shapes(db_filename, data)
+
+# ACTION: show new data in sqlitebrowser
