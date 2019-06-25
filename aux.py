@@ -157,7 +157,25 @@ def update_rectangle_area_where(db_filename,
 
 
 
-def add_column_to_geometric_shapes(db_filename):
-  """ Add column in a table.
+def add_columns_to_geometric_shapes(db_filename,
+                                    column_dict):
+  """ Add columns in geometric_shapes.
+  
+    Inputs
+  ------
+  db_filename : str
+    database filename
+  column_dict : dict
+    dictionary with columns names and types
+    
+  Outputs
+  -------
+  None
   """
-  pass
+  con = sqlite3.connect(db_filename)
+  cur = con.cursor()
+  for key in column_dict.keys():
+    cur.execute('alter table geometric_shapes ' +
+                'add ' + key + ' ' + column_dict[key] + ';')
+  con.commit()
+  con.close()
