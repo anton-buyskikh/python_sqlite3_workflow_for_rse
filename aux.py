@@ -62,7 +62,7 @@ def insert_into_geometric_shapes(db_filename, data):
 
 
 def select_from_table_where(db_filename,
-                            conditions,
+                            conditions=None,
                             column_list=['*']):
   """ Return data from a table with conditions
   
@@ -71,7 +71,7 @@ def select_from_table_where(db_filename,
   db_filename : str
     database filename
   conditions : dict
-    dictionary with arguments
+    dictionary with arguments OR None
   column_list : list of str
     columns, by default return all columns
     
@@ -80,14 +80,20 @@ def select_from_table_where(db_filename,
   output : list
     raws with data 
   """
-  condition_pairs = build_par_pairs(conditions)
-  column_names = ', '.join(column_list)
+  if conditions != None:
+    condition_pairs = build_par_pairs(conditions)
+  column_names = ', '.join(column_list) + ' '
   
   con = sqlite3.connect(db_filename)
   cur = con.cursor()
-  output = cur.execute('select ' + column_names +
-                        ' from geometric_shapes' +
-                        ' where ' + ' and '.join(condition_pairs) + ';').fetchall()
+  
+  if conditions == None:
+    output = cur.execute('select ' + column_names +
+                         'from geometric_shapes;').fetchall()
+  else:
+    output = cur.execute('select ' + column_names +
+                         'from geometric_shapes ' +
+                         'where ' + ' and '.join(condition_pairs) + ';').fetchall()
   con.close()
   return output
 
@@ -113,6 +119,40 @@ def build_par_pairs(pars):
     else:
       par_pairs.append(key + '=' + str(pars[key]))
   return par_pairs
+
+
+
+def update_rectangle_area_where(db_filename,
+                                conditions=None):
+  """ Update are of rectangles with conditions
+  
+  Inputs
+  ------
+  db_filename : str
+    database filename
+  conditions : dict
+    dictionary with arguments OR None
+    
+  Outputs
+  -------
+  None
+  """
+  if conditions != None:
+    condition_pairs = build_par_pairs(conditions)
+  
+  con = sqlite3.connect(db_filename)
+  cur = con.cursor()
+  if conditions == None:
+    cur.execute('update geometric_shapes ' +
+                'set area = height*width ' + 
+                'where shape = "rectangle";')
+  else:
+    cur.execute('update geometric_shapes ' +
+                'set area = height*width ' + 
+                'where shape = "rectangle" and ' + 
+                ' and '.join(condition_pairs) + ';')
+  con.commit()
+  con.close()
 
 
 
