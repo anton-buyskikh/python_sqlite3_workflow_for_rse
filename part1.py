@@ -36,7 +36,7 @@ aux.insert_into_geometric_shapes(db_filename, data)
 
 # %% add more data
 
-for height in [5.4, 3.7, 2.8]:
+for height in [2.8, 3.7, 5.4]:
   for width in [0.5, 1.4, 3.6]:
     for colour in ['blue', 'black', 'green']:
       data = dict(shape='rectangle', 

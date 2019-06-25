@@ -1,0 +1,1 @@
+about numpy.array connector
