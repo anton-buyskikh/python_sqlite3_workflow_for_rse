@@ -81,7 +81,7 @@ def select_from_table_where(db_filename,
     raws with data 
   """
   if conditions != None:
-    condition_pairs = build_par_pairs(conditions)
+    condition_pairs = build_condition_pairs(conditions)
   column_names = ', '.join(column_list) + ' '
   
   con = sqlite3.connect(db_filename)
@@ -93,32 +93,34 @@ def select_from_table_where(db_filename,
   else:
     output = cur.execute('select ' + column_names +
                          'from geometric_shapes ' +
-                         'where ' + ' and '.join(condition_pairs) + ';').fetchall()
+                         'where ' + condition_pairs + ';').fetchall()
   con.close()
   return output
 
 
 
-def build_par_pairs(pars):
+def build_condition_pairs(conditions):
   """ Return the list of parameter pairs in a form of strings
   
   Inputs
   ------
-  pars : dict
+  conditions : dict
     dictionary with arguments
   
   Outputs
   -------
-  par_pairs : list of str
+  condition_pairs : list of str
     parameter pairs in strings
   """
-  par_pairs = []
-  for key in pars.keys():
-    if type(pars[key]) == str:
-      par_pairs.append(key + '="' + pars[key] + '"')
+  condition_pairs = []
+  for key in conditions.keys():
+    if type(conditions[key]) == str:
+      condition_pairs.append(key + '="' + conditions[key] + '"')
     else:
-      par_pairs.append(key + '=' + str(pars[key]))
-  return par_pairs
+      condition_pairs.append(key + '=' + str(conditions[key]))
+  condition_pairs = ' and '.join(condition_pairs)    
+  
+  return condition_pairs
 
 
 
@@ -138,7 +140,7 @@ def update_rectangle_area_where(db_filename,
   None
   """
   if conditions != None:
-    condition_pairs = build_par_pairs(conditions)
+    condition_pairs = build_condition_pairs(conditions)
   
   con = sqlite3.connect(db_filename)
   cur = con.cursor()
@@ -149,14 +151,13 @@ def update_rectangle_area_where(db_filename,
   else:
     cur.execute('update geometric_shapes ' +
                 'set area = height*width ' + 
-                'where shape = "rectangle" and ' + 
-                ' and '.join(condition_pairs) + ';')
+                'where shape = "rectangle" and ' + condition_pairs + ';')
   con.commit()
   con.close()
 
 
 
-def add_column():
+def add_column_to_geometric_shapes(db_filename):
   """ Add column in a table.
   """
   pass
