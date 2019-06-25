@@ -1,5 +1,5 @@
 #
-# Part I of the tutorial: 
+# Part I: data collection 
 # 1. create a database 
 # 2. create a table
 # 3. insert data
@@ -30,6 +30,9 @@ data = dict(shape='rectangle',
 aux.insert_into_geometric_shapes(db_filename, data)
 
 # ACTION: show that the data is in the table
+
+# NOTE:  datetime or commit hash is useful in combination with git so as to
+# match each data entry with the software version
 
 # %% add more data
 
