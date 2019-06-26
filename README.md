@@ -1,6 +1,6 @@
 # Python + sqlite3 workflow for RSE
 
-Python sqlite3 practical example for Research Software Engineers. This tutorial is prepared for a presentation at the local RSE seminar and aim to new SQL users with some experience in Python.
+Python sqlite3 practical example for Research Software Engineers. This tutorial is prepared for a presentation at the local RSE seminar and aims to new SQL users with some experience in Python.
 
 ## Purpose
 
@@ -8,11 +8,11 @@ Provide a practical example where relational databases are used in research to o
 
 ## Prerequisites
 
-This tutorial has been tested only on Ubuntu 16.04 with pre-installed `sqlite3` and `sqlitebrowser` along with `python3` from [Anaconda](https://www.anaconda.com/distribution/).
+This tutorial has been tested only on Ubuntu 16.04 with pre-installed `sqlite3` and `sqlitebrowser` along with `python3` from [Anaconda](https://www.anaconda.com/distribution/). However it should work as it is on other Linux and Mac machines, and hopefully Windows.
 
 ## Instructions
 
-Follow the tutorial by working through Python scripts starting with `part`.
+Follow the tutorial by working through Python scripts starting with `part` in ascending order.
 
 ## Disclaimer
 
