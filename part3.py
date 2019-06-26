@@ -60,4 +60,4 @@ for radius in [1.0, 1.5]:
   
     aux.insert_into_geometric_shapes(db_filename, data)
 
-# ACTION: show new data in sqlitebrowser
+# ACTION: show new data in sqlitebrowser. work with filters.

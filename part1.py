@@ -10,6 +10,8 @@
 import aux
 import datetime
 
+# ACTION: show the content of aux
+
 # %% create a database with a table
 
 db_filename = 'tutorial.db'
@@ -47,4 +49,4 @@ for height in [2.8, 3.7, 5.4]:
       
       aux.insert_into_geometric_shapes(db_filename, data)
       
-# ACTION: show that the data is in the table
+# ACTION: show that the data is in the table. show basic filters

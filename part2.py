@@ -23,7 +23,7 @@ print(*output, sep='\n')
 
 # NOTE: area is not filled
 
-# NOTE: SQLAlchemy allowes you to have more flexibility
+# NOTE: SQLAlchemy + Pandas allow you to have more flexibility
 
 # %% update the table with data for area
 

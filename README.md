@@ -14,9 +14,11 @@ This tutorial has been tested only on Ubuntu 16.04 with pre-installed `sqlite3` 
 
 Follow the tutorial by working through Python scripts starting with `part`.
 
-## Disclamer
+## Disclaimer
 
-Provided here solutions are overly simplified and not always the best way of doing things. This is done merely for instructive purposes and introduction to the workflow and SQL syntax. For instance, refer to [SQLAlchemy](https://www.sqlalchemy.org/) and [Pandas](https://pandas.pydata.org/) for futher steps towards more professional solutions.
+Provided here solutions are overly simplified and not always the best way of doing things. This is done merely for instructive purposes and introduction to the general workflow and SQL syntax. For instance, refer to [SQLAlchemy](https://www.sqlalchemy.org/) and [Pandas](https://pandas.pydata.org/) for further steps towards more professional solutions.
+
+The content of slides has been mercilessly ripped off from multiple publicly available sources.
 
 ## Feedback
 
